@@ -10,18 +10,21 @@ class VendingMachine(object):
                 print("【{}】{}:{}円".format(num, name, fee))
                 num += 1
 
-    def pay_money(self):
-        chosen_drink = 1
-        money = 1000
-        item_num = self.drinks[chosen_drink - 1]
+    def pay_money(self, chosen_drink, money):
+        self.chosen_drink = chosen_drink
+        self.money = money
+        item_num = self.drinks[self.chosen_drink - 1]
         for i in item_num.values():
             price = int(i)
-        change = money - price
+        change = self.money - price
         print("お買い上げありがとうございます、お釣りは{}円です".format(change))
 
 
 drinks = [{'apple': '100'}, {'banana': '110'}, {'orange': '120'}]
 #drinksは、後ほどDrink_modelから入力する
+chosen_drink = 1
+money = 1000
+#chosen_drink,moneyは、後ほどUser_modelから入力する
 vending = VendingMachine(drinks)
 vending.show_drinks()
-vending.pay_money()
+vending.pay_money(chosen_drink, money)
