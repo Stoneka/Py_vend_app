@@ -6,13 +6,12 @@ class Drink(object):
 
 def drink_registration():
     print("商品を登録してください")
-    drinks = {}
+    drinks = []
     i = 0
     while i < 3:
         drink_name = input("商品名を入力してください")
         drink_fee = input("商品の金額を入力してください")
         drink = Drink(drink_name, drink_fee)
-        drinks.update({drink.name : drink.fee})
+        drinks.append({drink.name : drink.fee})
         i += 1
-    print(drinks)
-drink_registration()
+    return drinks
