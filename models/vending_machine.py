@@ -16,8 +16,11 @@ class VendingMachine(object):
         item_num = self.drinks[self.chosen_drink - 1]
         for i in item_num.values():
             price = int(i)
-        change = self.money - price
-        print("お買い上げありがとうございます、お釣りは{}円です".format(change))
+        if price <= self.money:
+            change = self.money - price
+            print("お買い上げありがとうございます、お釣りは{}円です".format(change))
+        else:
+            print("投入金額が足りません")
 
 
 drinks = [{'apple': '100'}, {'banana': '110'}, {'orange': '120'}]
