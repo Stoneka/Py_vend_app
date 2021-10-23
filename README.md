@@ -7,7 +7,7 @@ Pythonにおけるクラスの理解を深める為に作成しました。
 
 # 使い方
 
-start_vending関数を呼び出すと実行できます。
+start_vending関数を呼び出すと実行できます。<br>
 $ python main.py
 
 # 機能
