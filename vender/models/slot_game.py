@@ -14,6 +14,6 @@ class SlotGame(object):
             print("おめでとう！アタリです")
         else:
             print("残念･･･ハズレです")
-start_slot = SlotGame()
-start_slot.play_slot()
+#start_slot = SlotGame()
+#start_slot.play_slot()
 

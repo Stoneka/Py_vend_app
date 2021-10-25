@@ -1,4 +1,5 @@
 #coding: UTF-8
+from vender.models import slot_game
 class VendingMachine(object):
     def __init__(self, drinks):
         self.drinks = drinks
@@ -20,6 +21,8 @@ class VendingMachine(object):
             price = int(i)
         if price <= self.money:
             change = self.money - price
+            start_slot = slot_game.SlotGame()
+            start_slot.play_slot()
             print("お買い上げありがとうございます、お釣りは{}円です".format(change))
         else:
             print("投入金額が足りません")
