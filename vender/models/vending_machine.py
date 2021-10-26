@@ -22,7 +22,9 @@ class VendingMachine(object):
         if price <= self.money:
             change = self.money - price
             start_slot = slot_game.SlotGame()
-            start_slot.play_slot()
+            result = start_slot.play_slot()
             print("お買い上げありがとうございます、お釣りは{}円です".format(change))
+            if result:
+                print("もう一本プレゼント")
         else:
             print("投入金額が足りません")

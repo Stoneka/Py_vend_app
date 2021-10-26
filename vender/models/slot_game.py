@@ -12,8 +12,8 @@ class SlotGame(object):
         print("スロットの結果は{}です".format(result))
         if result[0] == result[1] and result[0] == result[2]:
             print("おめでとう！アタリです")
+            return True
         else:
             print("残念･･･ハズレです")
-#start_slot = SlotGame()
-#start_slot.play_slot()
+            return False
 
