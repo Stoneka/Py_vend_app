@@ -19,12 +19,14 @@ class VendingMachine(object):
         item_num = self.drinks[self.chosen_drink - 1]
         for i in item_num.values():
             price = int(i)
+        for i in item_num.keys():
+            item_name = str(i)
         if price <= self.money:
             change = self.money - price
             start_slot = slot_game.SlotGame()
             result = start_slot.play_slot()
-            print("お買い上げありがとうございます、お釣りは{}円です".format(change))
             if result:
-                print("もう一本プレゼント")
+                print("{}をもう一本プレゼント!!".format(item_name))
+            print("お釣りは{}円です".format(change))
         else:
             print("投入金額が足りません")
