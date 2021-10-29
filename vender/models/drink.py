@@ -30,6 +30,7 @@ def drink_registration():
         i += 1
     return drinks
 
+#同名商品の登録を制限する機能を関数として切り出す
 #def name_validate(drinks, drink):
 #    if drinks == []:
 #        drinks.append({drink.name : drink.fee})
