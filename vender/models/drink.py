@@ -13,37 +13,27 @@ def drink_registration():
         drink_name = input("商品名を入力してください")
         drink_fee = input("商品の金額を入力してください")
         drink = Drink(drink_name, drink_fee)
-        if drinks == []:
-            drinks.append({drink.name : drink.fee})
-        else:
-            judge_list = []
-            for item in drinks:
-                if drink.name not in item:
-                    judge_list.append("True")
-                else:
-                    judge_list.append("False")
-            if "False" in judge_list:
-                print("その商品は既に登録されています")
-                i -= 1
-            else:
-                drinks.append({drink.name : drink.fee})
+        judge_name = name_validate(drinks, drink, i)
+        drinks = judge_name[0]
+        drink = judge_name[1]
+        i = judge_name[2]
         i += 1
     return drinks
 
 #同名商品の登録を制限する機能を関数として切り出す
-#def name_validate(drinks, drink):
-#    if drinks == []:
-#        drinks.append({drink.name : drink.fee})
-#    else:
-#        judge_list = []
-#        for item in drinks:
-#            if drink.name not in item:
-#                judge_list.append("True")
-#            else:
-#                judge_list.append("False")
-#        if "False" in judge_list:
-#            print("その商品は既に登録されています")
-#            i -= 1
-#        else:
-#            drinks.append({drink.name : drink.fee})
-#    return drinks
+def name_validate(drinks, drink, i):
+    if drinks == []:
+        drinks.append({drink.name : drink.fee})
+    else:
+        judge_list = []
+        for item in drinks:
+            if drink.name not in item:
+                judge_list.append("True")
+            else:
+                judge_list.append("False")
+        if "False" in judge_list:
+            print("その商品は既に登録されています")
+            i -= 1
+        else:
+            drinks.append({drink.name : drink.fee})
+    return drinks, drink, i
