@@ -11,7 +11,7 @@ def drink_registration():
     i = 0
     while i < 3:
         drink_name = input("商品名を入力してください")
-        drink_fee = input("商品の金額を入力してください")
+        drink_fee = check_fee_integer()
         drink = Drink(drink_name, drink_fee)
         judge_name = name_validate(drinks, drink, i)
         drinks = judge_name[0]
@@ -37,3 +37,12 @@ def name_validate(drinks, drink, i):
         else:
             drinks.append({drink.name : drink.fee})
     return drinks, drink, i
+#商品の金額は整数値でないと登録できない機能
+def check_fee_integer():
+    drink_fee = input("商品の金額を入力してください")
+    try:
+        drink_fee = int(drink_fee)
+    except:
+        print("整数で入力してください")
+        return check_fee_integer()
+    return drink_fee
