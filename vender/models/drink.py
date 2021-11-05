@@ -55,3 +55,11 @@ def check_name_string():
         print("文字で入力してください")
         return check_name_string
     return drink_name
+#商品の編集機能（新たに商品を追加する機能）
+def add_drink(drinks):
+    print("新たに商品を追加します")
+    drink_name = check_name_string()
+    drink_fee = check_fee_integer()
+    drink = Drink(drink_name, drink_fee)
+    drinks.append({drink_name : drink_fee})
+    return drinks
