@@ -63,3 +63,7 @@ def add_drink(drinks):
     drink = Drink(drink_name, drink_fee)
     drinks.append({drink_name : drink_fee})
     return drinks
+def del_drink(drinks):
+    print("登録された商品を削除します")
+    drinks.pop()
+    return drinks
