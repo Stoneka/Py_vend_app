@@ -63,7 +63,20 @@ def add_drink(drinks):
     drink = Drink(drink_name, drink_fee)
     drinks.append({drink_name : drink_fee})
     return drinks
+def check_del_num_integer(drinks):
+    del_num = input("削除したい商品の番号を選んでください")
+    try:
+        del_num = int(del_num)
+    except:
+        print("整数で入力してください")
+        return check_del_num_integer()
+    if del_num < 0 or del_num > len(drinks):
+        print("１〜{}の数字で入力してください".format(len(drinks)))
+        return check_del_num_integer(drinks)
+    else:
+        return del_num
 def del_drink(drinks):
     print("登録された商品を削除します")
-    drinks.pop()
+    del_num = check_del_num_integer(drinks)
+    drinks.pop(del_num - 1)
     return drinks
