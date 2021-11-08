@@ -63,6 +63,7 @@ def add_drink(drinks):
     drink = Drink(drink_name, drink_fee)
     drinks.append({drink_name : drink_fee})
     return drinks
+#商品の編集機能（登録されている商品を削除する機能）
 def check_del_num_integer(drinks):
     del_num = input("削除したい商品の番号を選んでください")
     try:
@@ -80,3 +81,19 @@ def del_drink(drinks):
     del_num = check_del_num_integer(drinks)
     drinks.pop(del_num - 1)
     return drinks
+#商品の編集機能（商品の追加・削除を行う選択肢）
+def edit_drink(drinks):
+    print("商品の編集ができます")
+    chose_num = input("商品の追加は【１】、商品の削除は【２】、商品の購入は【３】を入力してください")
+    chose_num = int(chose_num)
+    if chose_num == 1:
+        add_drink(drinks)
+        return edit_drink(drinks)
+    elif chose_num == 2:
+        del_drink(drinks)
+        return edit_drink(drinks)
+    elif chose_num == 3:
+        return
+    else:
+        print("1~3の整数を入力してください")
+        return edit_drink(drinks)
