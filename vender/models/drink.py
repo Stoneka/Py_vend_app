@@ -1,4 +1,5 @@
 #coding: UTF-8
+from vender.models import vending_machine
 class Drink(object):
     def __init__(self, name, fee):
         self.name = name
@@ -84,6 +85,8 @@ def del_drink(drinks):
 #商品の編集機能（商品の追加・削除を行う選択肢）
 def edit_drink(drinks):
     print("商品の編集ができます")
+    machine = vending_machine.VendingMachine(drinks)
+    machine.show_drinks()
     chose_num = input("商品の追加は【１】、商品の削除は【２】、商品の購入は【３】を入力してください")
     chose_num = int(chose_num)
     if chose_num == 1:
