@@ -85,9 +85,7 @@ def del_drink(drinks):
 #商品の編集機能（商品の追加・削除を行う選択肢）
 def edit_drink(drinks):
     print("商品の編集ができます")
-    machine = vending_machine.VendingMachine(drinks)
-    machine.show_drinks()
-    chose_num = input("商品の追加は【１】、商品の削除は【２】、商品の購入は【３】を入力してください")
+    chose_num = input("商品の追加は【１】、商品の削除は【２】、商品の購入は【３】、商品の一覧は【4】を入力してください")
     chose_num = int(chose_num)
     if chose_num == 1:
         add_drink(drinks)
@@ -97,6 +95,10 @@ def edit_drink(drinks):
         return edit_drink(drinks)
     elif chose_num == 3:
         return
+    elif chose_num == 4:
+        machine = vending_machine.VendingMachine(drinks)
+        machine.show_drinks()
+        return edit_drink(drinks)
     else:
         print("1~3の整数を入力してください")
         return edit_drink(drinks)
