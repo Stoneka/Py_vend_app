@@ -15,7 +15,8 @@ class VendingMachine(object):
     def pay_money(self, money, chosen_drink):
         self.money = int(money)
         self.chosen_drink = int(chosen_drink)
-        print(self.chosen_drink)
+        for item_name in self.drinks[self.chosen_drink - 1].keys():
+            print("こちら{}です。お買い上げありがとうございます".format(item_name))
         item_num = self.drinks[self.chosen_drink - 1]
         for i in item_num.values():
             price = int(i)
