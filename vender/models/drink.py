@@ -59,10 +59,17 @@ def check_name_string():
 #商品の編集機能（新たに商品を追加する機能）
 def add_drink(drinks):
     print("新たに商品を追加します")
-    drink_name = check_name_string()
-    drink_fee = check_fee_integer()
-    drink = Drink(drink_name, drink_fee)
-    drinks.append({drink_name : drink_fee})
+    print("※但し、同じ商品名は登録できません")
+    i = 0
+    while i < 1:
+        drink_name = check_name_string()
+        drink_fee = check_fee_integer()
+        drink = Drink(drink_name, drink_fee)
+        judge_name = name_validate(drinks, drink, i)
+        drinks = judge_name[0]
+        drink = judge_name[1]
+        i = judge_name[2]
+        i += 1
     return drinks
 #商品の編集機能（登録されている商品を削除する機能）
 def check_del_num_integer(drinks):
