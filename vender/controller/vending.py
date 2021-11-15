@@ -8,11 +8,6 @@ def start_vending():
     machine = vending_machine.VendingMachine(drinks)
     machine.show_drinks()
     edit_vending(drinks, machine)
-    #drink.edit_drink(drinks)
-    #machine.show_drinks()
-    #purchaser = user.put_money()
-    #chosen = purchaser.choose_drink(drinks)
-    #machine.pay_money(purchaser.money, chosen)
 #商品編集機能を切り出し
 def edit_vending(drinks, machine):
     drink.edit_drink(drinks)
